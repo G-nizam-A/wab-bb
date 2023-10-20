@@ -32,6 +32,7 @@ export const action = async ({ request }: ActionArgs) => {
 //     const contact = await db.contact.findMany();
 //     return json({ contact });
 // };
+//changed
 export const loader = async () => {
     const contact = await db.contact.findMany();
     const contactData = contact.map((cont) => ({

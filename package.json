@@ -36,15 +36,15 @@
     "@remix-run/dev": "^1.19.1",
     "@remix-run/eslint-config": "^1.19.1",
     "@types/bcryptjs": "^2.4.2",
-    "@types/node": "^20.4.4",
+    "@types/node": "^20.8.7",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
     "eslint": "^8.38.0",
-    "prisma": "^5.0.0",
+    "prisma": "^5.4.2",
     "tailwind-scrollbar": "^3.0.4",
     "tailwindcss": "^3.3.3",
     "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -55,5 +55,13 @@
   "main": ".eslintrc.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/G-nizam-A/wab-bb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/G-nizam-A/wab-bb/issues"
+  },
+  "homepage": "https://github.com/G-nizam-A/wab-bb#readme"
 }

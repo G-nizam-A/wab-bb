@@ -4,12 +4,12 @@ const prisma = new PrismaClient()
 
 async function main() {
   // ... you will write your Prisma Client queries here
-  // await prisma.contact.create({
-  //   data: {
-  //     name: 'Alice',
-  //     phone: 12345678,
-  //    },
-  // });
+  await prisma.contact.create({
+    data: {
+      name: 'Alice',
+      phone: 12345678,
+     },
+  });
   // await prisma.contact.create({
   //   data: {
   //     name: 'Alice',
