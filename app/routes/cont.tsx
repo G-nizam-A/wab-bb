@@ -9,6 +9,7 @@ import { useState } from "react";
 
 export const action = async ({ request }: ActionArgs) => {
     const form = await request.formData();
+    const id = Number(form.get("id"));
     const phone = Number(form.get("phone"));
     const name = form.get("name") as string;
 
@@ -23,7 +24,7 @@ export const action = async ({ request }: ActionArgs) => {
         data: { ...fields },
     });
     // console.log(name,phone)
-    return redirect(`/contact`);
+    return redirect(`/`);
 };
 
 
@@ -48,7 +49,41 @@ export default function Index() {
 
     const [showForm, setShowForm] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
-    
+
+    const [formData, setFormData] = useState({ name: '', phone: '' });
+
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const form = new FormData();
+    form.append('name', formData.name);
+    form.append('phone', formData.phone);
+
+    try {
+      const response = await fetch('/cont', {
+        method: 'POST',
+        body: form,
+      });
+
+      if (response.ok) {
+        // const result = await response.json();
+        window.location.href = '/contt';
+      } else {
+        // Handle errors here
+        console.error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  };
     return (
         <>
             <section className="container px-4 mx-auto mt-10">
@@ -82,7 +117,7 @@ export default function Index() {
                                     </button>
                                     <div className="px-6 py-6 lg:px-8">
                                         <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Contact Details</h3>
-                                        <form className="space-y-6" method="post">
+                                        <form className="space-y-6" onSubmit={handleSubmit}>
                                             <div>
                                                 {/* <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label> */}
                                                 <input type="text" name="name" id="name" defaultValue={actionData?.fields?.name} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Name" required />
