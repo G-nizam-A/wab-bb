@@ -11,7 +11,7 @@ export const loader = async ({ request }: { request: Request }) => {
 
         if (id) {
             await db.contact.delete({ where: { id: id } });
-            return redirect('/');
+            return redirect('/contact');
         } 
 
     } catch (err) {
