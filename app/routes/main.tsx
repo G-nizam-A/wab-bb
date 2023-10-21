@@ -1,8 +1,10 @@
+import { Link } from "@remix-run/react";
+
 export default function Main() {
     return (
         <>
             <section className="text-xl text-red-800">
-                main
+                <Link to="/contact">Main</Link>
             </section>
         </>
     );
