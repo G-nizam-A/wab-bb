@@ -68,14 +68,14 @@ export default function Index() {
     form.append('phone', formData.phone);
 
     try {
-      const response = await fetch('/cont', {
+      const response = await fetch('/contact', {
         method: 'POST',
         body: form,
       });
-
+ 
       if (response.ok) {
         // const result = await response.json();
-        window.location.href = '/contt';
+        window.location.href = '/contact';
       } else {
         // Handle errors here
         console.error('Form submission failed');

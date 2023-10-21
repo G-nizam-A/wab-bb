@@ -4,7 +4,7 @@ export default function Main() {
     return (
         <>
             <section className="text-xl text-red-800">
-                <Link to="/contact">Main</Link>
+                <Link to="/cont">Main</Link>
             </section>
         </>
     );
