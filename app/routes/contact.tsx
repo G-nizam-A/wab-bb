@@ -9,7 +9,6 @@ import { useState } from "react";
 
 export const action = async ({ request }: ActionArgs) => {
     const form = await request.formData();
-    const id = Number(form.get("id"));
     const phone = Number(form.get("phone"));
     const name = form.get("name") as string;
 
@@ -24,7 +23,7 @@ export const action = async ({ request }: ActionArgs) => {
         data: { ...fields },
     });
     // console.log(name,phone)
-    return redirect(`/`);
+    return redirect(`/contact`);
 };
 
 
